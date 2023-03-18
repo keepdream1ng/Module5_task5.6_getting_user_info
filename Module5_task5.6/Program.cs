@@ -6,27 +6,7 @@
         {
             var UserUnfo = GetUserInfo();
             PrintUserInfo(UserUnfo);
-            //PrintArray(UserUnfo.favColours);
-            //Console.WriteLine(GetValidBool());
-            //var check = IsItValidBool(Console.ReadLine(), out bool result);
-            //int input = GetValidNum();
-            //string input = GetValidString();
-            //Console.WriteLine(input);
-            //Console.WriteLine($"проверка:{check} результат:{result}");
-            //Console.WriteLine(IsItValidNum(Console.ReadLine()));
         }
-
-        // to do 
-        // +IsItValidString
-        // +GetValidString
-        // +IsItValidNum
-        // +GetValidNum
-        // +IsItValidBool
-        // +GetValidBool
-        // +GetArrayFromConsole
-        // +GetUserInfo
-        // PrintArray
-        // PrintUserInfo
 
         // This method checks if string is not a number and has some lenght.
         static bool IsItValidString(string str)
