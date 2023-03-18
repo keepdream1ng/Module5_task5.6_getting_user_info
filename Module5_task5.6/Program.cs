@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            GetArrayFromConsole(3, "Enter colour/ Введите цвет");
+            GetUserInfo();
             //Console.WriteLine(GetValidBool());
             //var check = IsItValidBool(Console.ReadLine(), out bool result);
             //int input = GetValidNum();
@@ -22,7 +22,7 @@
         // +IsItValidBool
         // +GetValidBool
         // +GetArrayFromConsole
-        // GetUserInfo
+        // +GetUserInfo
         // PrintArray
         // PrintUserInfo
 
@@ -130,6 +130,39 @@
                 input[i] = GetValidString();
             }
             return input;
+        }
+
+        // This method returns tuple with the user info input.
+        static (string Name, string LastName, int age, bool havePet, string[] pets, int coloursNum, string[] favColours) GetUserInfo()
+        {
+            // I had to declare a whole empty tuple first, seems like the object would be easier, but i havent worked with them before.
+            (string Name, string LastName, int age, bool havePet, string[] pets, int coloursNum, string[] favColours) User =
+                (string.Empty, string.Empty, 1, false, Array.Empty<string>(), 1, Array.Empty<string>()); 
+
+            Console.WriteLine("Enter your name/ Введите свое имя");
+            User.Name = GetValidString();
+            
+            Console.WriteLine("Enter your lastname/ Введите свою фамилию");
+            User.LastName = GetValidString();
+
+            Console.WriteLine("Enter your age/ Введите свой возраст");
+            User.age = GetValidNum();
+
+            Console.WriteLine("Do you have a pet?/ У вас есть питомец?");
+            User.havePet = GetValidBool();
+
+            if (User.havePet)
+            {
+                Console.WriteLine("How many pets do you have?/ Сколько у вас питомцев?");
+                int petsNum = GetValidNum();
+                User.pets = GetArrayFromConsole(petsNum, "Enter name of a pet/ Введите имя питомца");
+            }
+
+            Console.WriteLine("How many favorite colours do you have?/ Сколько у тебя любимых цветов?");
+            User.coloursNum = GetValidNum();
+            User.favColours = GetArrayFromConsole(User.coloursNum, "Insert colour/ Введите цвет");
+
+            return User;
         }
     }
 }
