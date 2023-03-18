@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            string input = GetValidSting();
-            Console.WriteLine(input);
-            //Console.WriteLine(IsItValidString(Console.ReadLine()));
+            //string input = GetValidSting();
+            //Console.WriteLine(input);
+            Console.WriteLine(IsItValidNum(Console.ReadLine()));
         }
 
         // to do 
@@ -36,6 +36,12 @@
                 if (IsItValidString(input)) return input;
                 Console.WriteLine("Please type correct value/ Пожалуйста введите корректное значение");
             }
+        }
+
+        // This method checks if input is number and 0 is'nt an option.
+        static bool IsItValidNum(string str)
+        {
+            return ((str.Length > 0) && (int.TryParse(str, out int result) && (result > 0)));
         }
     }
 }
