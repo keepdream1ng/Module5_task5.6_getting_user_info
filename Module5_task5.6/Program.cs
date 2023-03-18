@@ -1,11 +1,12 @@
-﻿namespace Module5_task5._6
+﻿namespace Module5_task5_6
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             var UserUnfo = GetUserInfo();
-            PrintArray(UserUnfo.favColours);
+            PrintUserInfo(UserUnfo);
+            //PrintArray(UserUnfo.favColours);
             //Console.WriteLine(GetValidBool());
             //var check = IsItValidBool(Console.ReadLine(), out bool result);
             //int input = GetValidNum();
@@ -169,6 +170,22 @@
         static void PrintArray(string[] arr)
         {
             foreach (string item in arr) Console.WriteLine(item);
+        }
+
+        // This method prints tuple with the user info.
+        static void PrintUserInfo((string Name, string LastName, int age, bool havePet, string[] pets, int coloursNum, string[] favColours) UserInfo)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"First Name / Имя      | {UserInfo.Name,15}");
+            Console.WriteLine($"Last Name / Фамилия   | {UserInfo.LastName,15}");
+            Console.WriteLine($"Age / Возраст         | {UserInfo.age,15}");
+            if (UserInfo.havePet)
+            {
+                Console.WriteLine("\nPet names/ Клички питомцев");
+                PrintArray(UserInfo.pets);
+            }
+            Console.WriteLine("\n Favorite colours/ Любимые цвета");
+            PrintArray(UserInfo.favColours);
         }
     }
 }
