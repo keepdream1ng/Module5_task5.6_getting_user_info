@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(GetValidBool());
+            GetArrayFromConsole(3, "Enter colour/ Введите цвет");
+            //Console.WriteLine(GetValidBool());
             //var check = IsItValidBool(Console.ReadLine(), out bool result);
             //int input = GetValidNum();
             //string input = GetValidString();
@@ -19,9 +20,10 @@
         // +IsItValidNum
         // +GetValidNum
         // +IsItValidBool
-        // GetValidBool
-        // GetStrArrayFromConsole
+        // +GetValidBool
+        // +GetArrayFromConsole
         // GetUserInfo
+        // PrintArray
         // PrintUserInfo
 
         // This method checks if string is not a number and has some lenght.
@@ -115,6 +117,19 @@
                 if (IsItValidBool(input, out output)) return output;
                 Console.WriteLine("Please type yes/no answer correctly/ Пожалуйста введите да или нет");
             }
+        }
+
+        // This method puts user input in a array based of passed lenght and guides user via the message.
+        static string[] GetArrayFromConsole(int lenght, string message = "Insert data/ Введите данные")
+        {
+            string[] input = new string[lenght];
+
+            for (int i = 0; i < lenght; i++) 
+            {
+                Console.WriteLine($"{message} {i + 1}");
+                input[i] = GetValidString();
+            }
+            return input;
         }
     }
 }
