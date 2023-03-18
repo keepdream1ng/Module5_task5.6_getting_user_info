@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            GetUserInfo();
+            var UserUnfo = GetUserInfo();
+            PrintArray(UserUnfo.favColours);
             //Console.WriteLine(GetValidBool());
             //var check = IsItValidBool(Console.ReadLine(), out bool result);
             //int input = GetValidNum();
@@ -163,6 +164,11 @@
             User.favColours = GetArrayFromConsole(User.coloursNum, "Insert colour/ Введите цвет");
 
             return User;
+        }
+
+        static void PrintArray(string[] arr)
+        {
+            foreach (string item in arr) Console.WriteLine(item);
         }
     }
 }
