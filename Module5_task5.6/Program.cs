@@ -1,4 +1,5 @@
-﻿using System.Xml.XPath;
+﻿using System.Globalization;
+using System.Xml.XPath;
 
 namespace Module5_task5._6
 {
@@ -6,9 +7,11 @@ namespace Module5_task5._6
     {
         static void Main(string[] args)
         {
-            int input = GetValidNum();
+            var check = IsItValidBool(Console.ReadLine(), out bool result);
+            //int input = GetValidNum();
             //string input = GetValidString();
-            Console.WriteLine(input);
+            //Console.WriteLine(input);
+            Console.WriteLine($"проверка:{check} результат:{result}");
             //Console.WriteLine(IsItValidNum(Console.ReadLine()));
         }
 
@@ -17,7 +20,7 @@ namespace Module5_task5._6
         // +GetValidString
         // +IsItValidNum
         // +GetValidNum
-        // IsItValidBool
+        // +IsItValidBool
         // GetValidBool
         // GetStrArrayFromConsole
         // GetUserInfo
@@ -50,7 +53,7 @@ namespace Module5_task5._6
             return ((str.Length > 0) && (int.TryParse(str, out output) && (output > 0)));
         }
 
-        // This method repeats intup until it is valid number.
+        // This method repeats input until it is valid number.
         static int GetValidNum()
         {
             string input;
@@ -63,6 +66,43 @@ namespace Module5_task5._6
                 Console.WriteLine("Please type correct number/ Пожалуйста введите корректное значение числа");
             }
             
+        }
+
+        // This method checks different answers as a bool and outputs result if there is one.
+        static bool IsItValidBool(string str, out bool output)
+        {
+            switch (str)
+            {
+                case "true":
+                case "yes":
+                case "Yes":
+                case "yep":
+                case "yas":
+                case "да":
+                case "Да":
+                case "aга":
+                case "Ага":
+                    {
+                        output = true;
+                        return true;
+                    }
+                case "false": 
+                case "no": 
+                case "No": 
+                case "nope": 
+                case "нет": 
+                case "Нет": 
+                case "неа": 
+                    {
+                        output = false;
+                        return true;
+                    }
+                default: ;
+                    {
+                        output = false;
+                        return false;
+                    }
+            }
         }
     }
 }
