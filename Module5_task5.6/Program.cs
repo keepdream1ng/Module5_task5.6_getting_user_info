@@ -1,17 +1,15 @@
-﻿using System.Globalization;
-using System.Xml.XPath;
-
-namespace Module5_task5._6
+﻿namespace Module5_task5._6
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            var check = IsItValidBool(Console.ReadLine(), out bool result);
+            Console.WriteLine(GetValidBool());
+            //var check = IsItValidBool(Console.ReadLine(), out bool result);
             //int input = GetValidNum();
             //string input = GetValidString();
             //Console.WriteLine(input);
-            Console.WriteLine($"проверка:{check} результат:{result}");
+            //Console.WriteLine($"проверка:{check} результат:{result}");
             //Console.WriteLine(IsItValidNum(Console.ReadLine()));
         }
 
@@ -102,6 +100,20 @@ namespace Module5_task5._6
                         output = false;
                         return false;
                     }
+            }
+        }
+
+        // This method repeats input until it is valid bool.
+        static bool GetValidBool()
+        {
+            string input;
+            bool output;
+            
+            while (true)
+            {
+                input = Console.ReadLine();
+                if (IsItValidBool(input, out output)) return output;
+                Console.WriteLine("Please type yes/no answer correctly/ Пожалуйста введите да или нет");
             }
         }
     }
