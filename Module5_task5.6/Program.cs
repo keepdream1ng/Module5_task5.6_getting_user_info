@@ -79,7 +79,7 @@
                         output = false;
                         return true;
                     }
-                default: ;
+                default:
                     {
                         output = false;
                         return false;
