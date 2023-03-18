@@ -1,19 +1,22 @@
-﻿namespace Module5_task5._6
+﻿using System.Xml.XPath;
+
+namespace Module5_task5._6
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //string input = GetValidSting();
-            //Console.WriteLine(input);
-            Console.WriteLine(IsItValidNum(Console.ReadLine()));
+            int input = GetValidNum();
+            //string input = GetValidString();
+            Console.WriteLine(input);
+            //Console.WriteLine(IsItValidNum(Console.ReadLine()));
         }
 
         // to do 
-        // IsItValidString
-        // GetValidString
-        // IsItValidNum
-        // GetValidNum
+        // +IsItValidString
+        // +GetValidString
+        // +IsItValidNum
+        // +GetValidNum
         // IsItValidBool
         // GetValidBool
         // GetStrArrayFromConsole
@@ -27,9 +30,10 @@
         }
 
         // This method repeats input until it is valid.
-        static string GetValidSting()
+        static string GetValidString()
         {
             string input;
+
             while (true)
             {
                 input = Console.ReadLine();
@@ -39,9 +43,26 @@
         }
 
         // This method checks if input is number and 0 is'nt an option.
-        static bool IsItValidNum(string str)
+        static bool IsItValidNum(string str, out int output)
         {
-            return ((str.Length > 0) && (int.TryParse(str, out int result) && (result > 0)));
+            output = 1;
+            // output will be rewritten at least if the check is passed.
+            return ((str.Length > 0) && (int.TryParse(str, out output) && (output > 0)));
+        }
+
+        // This method repeats intup until it is valid number.
+        static int GetValidNum()
+        {
+            string input;
+            int output;
+
+            while (true)
+            {
+                input = Console.ReadLine();
+                if (IsItValidNum(input, out output)) return output;
+                Console.WriteLine("Please type correct number/ Пожалуйста введите корректное значение числа");
+            }
+            
         }
     }
 }
