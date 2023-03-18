@@ -1,12 +1,10 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace Module5_task5._6
+﻿namespace Module5_task5._6
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine(IsItValidString(Console.ReadLine()));
         }
 
         // to do 
@@ -19,10 +17,10 @@ namespace Module5_task5._6
         // GetStrArrayFromConsole
         // GetUserInfo
         // PrintUserInfo
-        
-        //static bool IsItValidString (string str)
-        //{
 
-        //}
+        static bool IsItValidString(string str)
+        {
+            return ((str.Length > 0) && (!int.TryParse(str, out int result)));
+        }
     }
 }
